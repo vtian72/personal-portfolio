@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vincent Tian",
   description: "Data Scientist based in San Francisco Bay Area",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
