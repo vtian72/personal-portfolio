@@ -124,6 +124,12 @@ const education = [
     degree: "bsc mathematics & statistics",
     year: "2020",
   },
+  {
+    school: "university college london",
+    logo: "/logo_ucl.png",
+    degree: "exchange program - statistics",
+    year: "2019",
+  },
 ];
 
 export default function Home() {
@@ -150,7 +156,7 @@ export default function Home() {
           <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-4">about me</h2>
           <ul className="text-sm leading-relaxed text-zinc-600 space-y-1.5 list-disc list-outside ml-4">
             <li>data scientist @ meta - business ai &amp; api products</li>
-            <li>previously @ tiktok (social) and quantium (government &amp; product analytics)</li>
+            <li>prev @ tiktok (social) and @ quantium (government &amp; product analytics)</li>
             <li>ml, deep learning &amp; optimisation @ mit, maths + stats @ unimelb</li>
             <li>grew up in perth, australia 🇦🇺</li>
           </ul>
