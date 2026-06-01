@@ -54,66 +54,59 @@ const experience = [
 
 const projects = [
   {
-    title: "swipe for travel planning",
-    description:
-      "a fun side project with a friend - a travel planning app where you swipe through activities tinder-style to build a trip. i worked on data scraping, activity recommendations, and ranking. shipped to 100 real users.",
-    tags: "",
-    link: "https://github.com/hoang-phan98/tripswipe",
-    linkText: "github",
-    img: "/tripswipe.png",
-  },
-  {
+    category: "computer vision",
     title: "get real: real vs fake image detection",
     description:
       "built a fake product image detector using transfer learning (VGG-19, ResNet50, EfficientNet) on a custom 6,000-image dataset. shipped as a Chrome Extension.",
-    tags: "",
     link: "/reports/getreal.pdf",
-    linkText: "report",
     img: "/getreal.gif",
   },
   {
-    title: "optimising a global microchip supply chain",
-    description:
-      "formulated a mixed-integer optimization model for a global microchip producer to minimize warehouse and transportation costs across 1,000 orders.",
-    tags: "",
-    link: "/reports/supply-chain.pdf",
-    linkText: "report",
-    img: "/tsp.gif",
-  },
-  {
+    category: "nlp & llms",
     title: "fine-tuning gpt to write like shakespeare",
     description:
       "fine-tuned GPT-2 and GPT DaVinci on the Shakescleare dataset to reproduce Shakespearean prose. benchmarked against a Style Transformer using BLEU, ROUGE, and cosine similarity.",
-    tags: "",
     link: "/reports/shakespeare.pdf",
-    linkText: "report",
     img: "/opt.gif",
   },
   {
+    category: "nlp & llms",
     title: "where's the alpha? scraping telegram with llms",
     description:
       "built an end-to-end analytics tool that scrapes Telegram data, applies NER and TF-IDF to extract features, clusters messages via embeddings, and generates market insights using GPT-4.",
-    tags: "",
     link: null,
-    linkText: null,
     img: "/tool.png",
   },
   {
+    category: "optimisation",
+    title: "optimising a global microchip supply chain",
+    description:
+      "formulated a mixed-integer optimization model for a global microchip producer to minimize warehouse and transportation costs across 1,000 orders.",
+    link: "/reports/supply-chain.pdf",
+    img: "/tsp.gif",
+  },
+  {
+    category: "machine learning",
+    title: "swipe for travel planning",
+    description:
+      "a fun side project with a friend - a travel planning app where you swipe through activities tinder-style to build a trip. i worked on data scraping, activity recommendations, and ranking. shipped to 100 real users.",
+    link: "https://github.com/hoang-phan98/tripswipe",
+    img: "/tripswipe.png",
+  },
+  {
+    category: "machine learning",
     title: "predicting fetal health from heartbeat signals",
     description:
       "built a multi-class classifier on cardiotocogram (CTG) data - fetal heart rate and uterine contraction signals - to classify fetal health states and support early clinical intervention.",
-    tags: "",
     link: "/reports/fetal-health.pdf",
-    linkText: "report",
     img: "/ctg.jpg",
   },
   {
+    category: "machine learning",
     title: "targeting the right buyers for automotive market entry",
     description:
       "predicted customer segments (A/B/C/D) for 2,627 new-market prospects using imputation techniques to handle missing data, enabling targeted sales outreach.",
-    tags: "",
     link: "/reports/customer-segmentation.pdf",
-    linkText: "report",
     img: "/kmeans.gif",
   },
 ];
@@ -154,24 +147,24 @@ export default function Home() {
 
         {/* bio */}
         <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">about me</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-4">about me</h2>
           <ul className="text-sm leading-relaxed text-zinc-600 space-y-1.5 list-disc list-outside ml-4">
             <li>data scientist @ meta - business ai &amp; api products</li>
             <li>previously @ tiktok (social) and quantium (government &amp; product analytics)</li>
             <li>ml, deep learning &amp; optimisation @ mit, maths + stats @ unimelb</li>
-            <li>grew up in perth, australia</li>
+            <li>grew up in perth, australia 🇦🇺</li>
           </ul>
         </section>
 
         {/* news */}
         <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">recent</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-4">recent</h2>
           <div className="relative border-l border-zinc-200 pl-5 space-y-4">
             {news.map((item, i) => (
               <div key={i} className="relative text-sm">
                 <span className="absolute -left-[1.4rem] top-[0.4rem] w-2 h-2 rounded-full bg-zinc-300" />
-                <span className="text-zinc-400 text-xs block mb-0.5">{item.date}</span>
-                <span className="text-zinc-600">
+                <span className="text-zinc-600 text-xs font-medium block mb-0.5">{item.date}</span>
+                <span className="text-zinc-500">
                   {item.text}
                   {item.link && (
                     <a href={item.link.url} target="_blank" rel="noopener noreferrer" className="text-zinc-900 underline underline-offset-2 hover:text-zinc-500 transition-colors">{item.link.label}</a>
@@ -185,12 +178,12 @@ export default function Home() {
 
         {/* experience */}
         <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-6">work experience</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-6">work experience</h2>
           <div className="relative border-l border-zinc-200 pl-5 space-y-6">
             {experience.map((job) => (
               <div key={job.company} className="relative">
                 <span className="absolute -left-[1.4rem] top-[0.4rem] w-2 h-2 rounded-full bg-zinc-300" />
-                <span className="text-zinc-400 text-xs block mb-0.5">{job.period}</span>
+                <span className="text-zinc-600 text-xs font-medium block mb-0.5">{job.period}</span>
                 <div className="flex items-center gap-2 mb-1">
                   <img src={job.logo} alt={job.company} className="w-4 h-4 rounded object-contain" />
                   <a href={job.url} target="_blank" rel="noopener noreferrer" className="font-medium text-sm hover:underline">{job.company}</a>
@@ -204,34 +197,38 @@ export default function Home() {
 
         {/* projects */}
         <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-6">projects</h2>
-          <div className="space-y-8">
-            {projects.map((p) => (
-              <div key={p.title} className="flex gap-5">
-                {p.img && (
-                  <div className="shrink-0 w-36 h-24 overflow-hidden rounded bg-zinc-100">
-                    <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
-                  </div>
-                )}
-                <div>
-                  <div className="mb-1">
-                    {p.link ? (
-                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="font-medium text-sm underline underline-offset-2 hover:text-zinc-500 transition-colors">{p.title}</a>
-                    ) : (
-                      <span className="font-medium text-sm">{p.title}</span>
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-6">projects</h2>
+          {["computer vision", "nlp & llms", "optimisation", "machine learning"].map((cat) => (
+            <div key={cat} className="mb-8">
+              <p className="text-sm font-medium text-zinc-600 mb-4">{cat}</p>
+              <div className="space-y-6">
+                {projects.filter((p) => p.category === cat).map((p) => (
+                  <div key={p.title} className="flex gap-5">
+                    {p.img && (
+                      <div className="shrink-0 w-36 h-24 overflow-hidden rounded bg-zinc-100">
+                        <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+                      </div>
                     )}
+                    <div>
+                      <div className="mb-1">
+                        {p.link ? (
+                          <a href={p.link} target="_blank" rel="noopener noreferrer" className="font-medium text-sm underline underline-offset-2 hover:text-zinc-500 transition-colors">{p.title}</a>
+                        ) : (
+                          <span className="font-medium text-sm">{p.title}</span>
+                        )}
+                      </div>
+                      <p className="text-sm text-zinc-600 leading-relaxed">{p.description}</p>
+                    </div>
                   </div>
-                  <p className="text-sm text-zinc-600 leading-relaxed mb-1">{p.description}</p>
-                  {p.tags && <p className="text-xs text-zinc-400">{p.tags}</p>}
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </section>
 
         {/* education */}
         <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">education</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-4">education</h2>
           <div className="space-y-3">
             {education.map((e) => (
               <div key={e.school} className="flex justify-between items-center text-sm">
@@ -240,7 +237,7 @@ export default function Home() {
                   <span className="font-medium">{e.school}</span>
                   <span className="text-zinc-500">· {e.degree}</span>
                 </div>
-                <span className="text-zinc-400 text-xs ml-4">{e.year}</span>
+                <span className="text-zinc-600 text-xs font-medium ml-4">{e.year}</span>
               </div>
             ))}
           </div>
