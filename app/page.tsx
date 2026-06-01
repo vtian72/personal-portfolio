@@ -1,64 +1,246 @@
-import Image from "next/image";
+const news = [
+  {
+    date: "aug 2025",
+    text: "tiktok launched ",
+    link: { label: "ai avatar stickers", url: "https://www.socialmediatoday.com/news/tiktok-adds-ai-avatar-stickers-coming-ai-features-douyin/757646/" },
+    textAfter: " - part of the social avatar work i contributed to at tiktok.",
+  },
+  {
+    date: "jul 2025",
+    text: "whatsapp launched the ",
+    link: { label: "business calling api", url: "https://whatsappbusiness.com/blog/whatsapp-business-calling-api/" },
+    textAfter: " - a product i worked on at meta.",
+  },
+  {
+    date: "jul 2025",
+    text: "meta announced new business messaging features at ",
+    link: { label: "conversations 2025", url: "https://www.socialmediatoday.com/news/meta-announces-business-messaging-updates-conversations-2025-whatsapp/752250/" },
+    textAfter: ", including whatsapp calling and messenger api updates.",
+  },
+  {
+    date: "oct 2024",
+    text: "won 1st place (starkware award) at ",
+    link: { label: "cube summit 2024", url: "https://x.com/CUBE_Summit/status/1842326005077495889?s=20" },
+    textAfter: " for our project 'where's the alpha? scraping telegram with llms'.",
+  },
+];
+
+const experience = [
+  {
+    company: "Meta",
+    url: "https://about.meta.com",
+    logo: "/logo_meta.png",
+    role: "data scientist, business AI",
+    period: "mar 2025 – present",
+    summary: "causal inference, experimentation, and ml modelling across whatsapp api calling, whatsapp api voice messaging, and messenger calling.",
+  },
+  {
+    company: "TikTok",
+    url: "https://www.tiktok.com",
+    logo: "/logo_tiktok.png",
+    role: "data scientist, social",
+    period: "oct 2024 – mar 2025",
+    summary: "machine learning and experimentation on the social team, driving the launch and growth of social avatar, and defining social connection scenarios to improve organic relationship formation between users.",
+  },
+  {
+    company: "Quantium",
+    url: "https://www.quantium.com",
+    logo: "/logo_quantium.png",
+    role: "data scientist, product analytics",
+    period: "feb 2021 – jun 2023",
+    summary: "end-to-end analytics pipelines, forecasting models, and dashboards for B2B SaaS and government clients in australia.",
+  },
+];
+
+const projects = [
+  {
+    title: "get real: real vs fake image detection",
+    description:
+      "built a fake product image detector using transfer learning (VGG-19, ResNet50, EfficientNet) on a custom 6,000-image dataset. shipped as a Chrome Extension.",
+    tags: "",
+    link: "/reports/getreal.pdf",
+    linkText: "report",
+    img: "https://raw.githubusercontent.com/vtian72/portfolio/main/assets/img/getreal.gif",
+  },
+  {
+    title: "optimising a global microchip supply chain",
+    description:
+      "formulated a mixed-integer optimization model for a global microchip producer to minimize warehouse and transportation costs across 1,000 orders.",
+    tags: "",
+    link: "/reports/supply-chain.pdf",
+    linkText: "report",
+    img: "https://prat8897.github.io/posts/Travelling-Salesman-Problem/cycle_evolution.gif",
+  },
+  {
+    title: "fine-tuning gpt to write like shakespeare",
+    description:
+      "fine-tuned GPT-2 and GPT DaVinci on the Shakescleare dataset to reproduce Shakespearean prose. benchmarked against a Style Transformer using BLEU, ROUGE, and cosine similarity.",
+    tags: "",
+    link: "/reports/shakespeare.pdf",
+    linkText: "report",
+    img: "https://cs231n.github.io/assets/nn3/opt2.gif",
+  },
+  {
+    title: "where's the alpha? scraping telegram with llms",
+    description:
+      "built an end-to-end analytics tool that scrapes Telegram data, applies NER and TF-IDF to extract features, clusters messages via embeddings, and generates market insights using GPT-4.",
+    tags: "",
+    link: null,
+    linkText: null,
+    img: "https://raw.githubusercontent.com/vtian72/portfolio/main/assets/img/tool.png",
+  },
+  {
+    title: "predicting fetal health from heartbeat signals",
+    description:
+      "built a multi-class classifier on cardiotocogram (CTG) data - fetal heart rate and uterine contraction signals - to classify fetal health states and support early clinical intervention.",
+    tags: "",
+    link: "/reports/fetal-health.pdf",
+    linkText: "report",
+    img: "/ctg.jpg",
+  },
+  {
+    title: "targeting the right buyers for automotive market entry",
+    description:
+      "predicted customer segments (A/B/C/D) for 2,627 new-market prospects using imputation techniques to handle missing data, enabling targeted sales outreach.",
+    tags: "",
+    link: "/reports/customer-segmentation.pdf",
+    linkText: "report",
+    img: "/kmeans.gif",
+  },
+];
+
+const education = [
+  {
+    school: "MIT",
+    logo: "/logo_mit.png",
+    degree: "master of business analytics",
+    year: "2024",
+  },
+  {
+    school: "university of melbourne",
+    logo: "/logo_unimelb.png",
+    degree: "bsc mathematics & statistics",
+    year: "2020",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-white text-zinc-900" style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }}>
+      <main className="max-w-2xl mx-auto px-6 py-16">
+
+        {/* header */}
+        <div className="flex items-start gap-6 mb-10">
+          <img src="/headshot.jpg" alt="vincent tian" className="w-32 h-32 rounded-full object-cover shrink-0" />
+          <div>
+            <h1 className="text-2xl font-semibold mb-1">vincent tian</h1>
+            <p className="text-zinc-500 text-sm mb-3">data scientist · san francisco bay area</p>
+            <div className="flex gap-4 text-sm text-zinc-500">
+              <a href="mailto:vincent.tian72@gmail.com" className="hover:text-zinc-900">email</a>
+              <a href="https://github.com/vtian72" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900">github</a>
+              <a href="https://www.linkedin.com/in/vincentian/?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900">linkedin</a>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {/* bio */}
+        <section className="mb-12">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">about me</h2>
+          <ul className="text-sm leading-relaxed text-zinc-600 space-y-1.5 list-disc list-outside ml-4">
+            <li>data scientist @ meta - business ai &amp; api products</li>
+            <li>previously @ tiktok (social) and quantium (government &amp; product analytics)</li>
+            <li>ml, deep learning &amp; optimisation @ mit, maths + stats @ unimelb</li>
+            <li>grew up in perth, australia</li>
+          </ul>
+        </section>
+
+        {/* news */}
+        <section className="mb-12">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">recent</h2>
+          <div className="relative border-l border-zinc-200 pl-5 space-y-4">
+            {news.map((item, i) => (
+              <div key={i} className="relative text-sm">
+                <span className="absolute -left-[1.4rem] top-[0.4rem] w-2 h-2 rounded-full bg-zinc-300" />
+                <span className="text-zinc-400 text-xs block mb-0.5">{item.date}</span>
+                <span className="text-zinc-600">
+                  {item.text}
+                  {item.link && (
+                    <a href={item.link.url} target="_blank" rel="noopener noreferrer" className="text-zinc-900 underline underline-offset-2 hover:text-zinc-500 transition-colors">{item.link.label}</a>
+                  )}
+                  {item.textAfter}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* experience */}
+        <section className="mb-12">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-6">work experience</h2>
+          <div className="relative border-l border-zinc-200 pl-5 space-y-6">
+            {experience.map((job) => (
+              <div key={job.company} className="relative">
+                <span className="absolute -left-[1.4rem] top-[0.4rem] w-2 h-2 rounded-full bg-zinc-300" />
+                <span className="text-zinc-400 text-xs block mb-0.5">{job.period}</span>
+                <div className="flex items-center gap-2 mb-1">
+                  <img src={job.logo} alt={job.company} className="w-4 h-4 rounded object-contain" />
+                  <a href={job.url} target="_blank" rel="noopener noreferrer" className="font-medium text-sm hover:underline">{job.company}</a>
+                  <span className="text-zinc-500 text-sm">· {job.role}</span>
+                </div>
+                <p className="text-sm text-zinc-500 leading-relaxed">{job.summary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* projects */}
+        <section className="mb-12">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-6">projects</h2>
+          <div className="space-y-8">
+            {projects.map((p) => (
+              <div key={p.title} className="flex gap-5">
+                {p.img && (
+                  <div className="shrink-0 w-36 h-24 overflow-hidden rounded bg-zinc-100">
+                    <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+                  </div>
+                )}
+                <div>
+                  <div className="mb-1">
+                    {p.link ? (
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="font-medium text-sm underline underline-offset-2 hover:text-zinc-500 transition-colors">{p.title}</a>
+                    ) : (
+                      <span className="font-medium text-sm">{p.title}</span>
+                    )}
+                  </div>
+                  <p className="text-sm text-zinc-600 leading-relaxed mb-1">{p.description}</p>
+                  {p.tags && <p className="text-xs text-zinc-400">{p.tags}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* education */}
+        <section className="mb-12">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">education</h2>
+          <div className="space-y-3">
+            {education.map((e) => (
+              <div key={e.school} className="flex justify-between items-center text-sm">
+                <div className="flex items-center gap-2">
+                  <img src={e.logo} alt={e.school} className="w-5 h-5 rounded object-contain" />
+                  <span className="font-medium">{e.school}</span>
+                  <span className="text-zinc-500">· {e.degree}</span>
+                </div>
+                <span className="text-zinc-400 text-xs ml-4">{e.year}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* footer */}
+        <p className="text-xs text-zinc-400">
+          vincent.tian72@gmail.com · san francisco bay area
+        </p>
       </main>
     </div>
   );
