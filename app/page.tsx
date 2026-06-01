@@ -54,13 +54,22 @@ const experience = [
 
 const projects = [
   {
+    title: "swipe for travel planning",
+    description:
+      "a fun side project with a friend - a travel planning app where you swipe through activities tinder-style to build a trip. i worked on data scraping, activity recommendations, and ranking. shipped to 100 real users.",
+    tags: "",
+    link: "https://github.com/hoang-phan98/tripswipe",
+    linkText: "github",
+    img: "/tripswipe.png",
+  },
+  {
     title: "get real: real vs fake image detection",
     description:
       "built a fake product image detector using transfer learning (VGG-19, ResNet50, EfficientNet) on a custom 6,000-image dataset. shipped as a Chrome Extension.",
     tags: "",
     link: "/reports/getreal.pdf",
     linkText: "report",
-    img: "https://raw.githubusercontent.com/vtian72/portfolio/main/assets/img/getreal.gif",
+    img: "/getreal.gif",
   },
   {
     title: "optimising a global microchip supply chain",
@@ -69,7 +78,7 @@ const projects = [
     tags: "",
     link: "/reports/supply-chain.pdf",
     linkText: "report",
-    img: "https://prat8897.github.io/posts/Travelling-Salesman-Problem/cycle_evolution.gif",
+    img: "/tsp.gif",
   },
   {
     title: "fine-tuning gpt to write like shakespeare",
@@ -78,7 +87,7 @@ const projects = [
     tags: "",
     link: "/reports/shakespeare.pdf",
     linkText: "report",
-    img: "https://cs231n.github.io/assets/nn3/opt2.gif",
+    img: "/opt.gif",
   },
   {
     title: "where's the alpha? scraping telegram with llms",
@@ -87,7 +96,7 @@ const projects = [
     tags: "",
     link: null,
     linkText: null,
-    img: "https://raw.githubusercontent.com/vtian72/portfolio/main/assets/img/tool.png",
+    img: "/tool.png",
   },
   {
     title: "predicting fetal health from heartbeat signals",
