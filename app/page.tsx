@@ -115,13 +115,13 @@ const education = [
   {
     school: "mit",
     logo: "/logo_mit.png",
-    degree: "master of business analytics",
+    degree: "masters - business analytics",
     year: "2024",
   },
   {
     school: "university of melbourne",
     logo: "/logo_unimelb.png",
-    degree: "bsc mathematics & statistics",
+    degree: "bsc - mathematics & statistics",
     year: "2020",
   },
   {
