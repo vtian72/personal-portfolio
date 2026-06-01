@@ -113,7 +113,7 @@ const projects = [
 
 const education = [
   {
-    school: "MIT",
+    school: "mit",
     logo: "/logo_mit.png",
     degree: "master of business analytics",
     year: "2024",
