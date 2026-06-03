@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { projects, projectCategories } from "./projects";
+
 const news = [
   {
     date: "aug 2025",
@@ -49,65 +52,6 @@ const experience = [
     role: "data scientist, product analytics",
     period: "feb 2021 – jun 2023",
     summary: "end-to-end analytics pipelines, forecasting models, and dashboards for B2B SaaS and government clients in australia.",
-  },
-];
-
-const projects = [
-  {
-    category: "computer vision",
-    title: "get real: real vs fake image detection",
-    description:
-      "built a fake product image detector using transfer learning (VGG-19, ResNet50, EfficientNet) on a custom 6,000-image dataset. shipped as a Chrome Extension.",
-    link: "/reports/getreal.pdf",
-    img: "/getreal.gif",
-  },
-  {
-    category: "nlp & llms",
-    title: "fine-tuning gpt to write like shakespeare",
-    description:
-      "fine-tuned GPT-2 and GPT DaVinci on the Shakescleare dataset to reproduce Shakespearean prose. benchmarked against a Style Transformer using BLEU, ROUGE, and cosine similarity.",
-    link: "/reports/shakespeare.pdf",
-    img: "/opt.gif",
-  },
-  {
-    category: "nlp & llms",
-    title: "where's the alpha? scraping telegram with llms",
-    description:
-      "built an end-to-end analytics tool that scrapes Telegram data, applies NER and TF-IDF to extract features, clusters messages via embeddings, and generates market insights using GPT-4.",
-    link: null,
-    img: "/tool.png",
-  },
-  {
-    category: "optimisation",
-    title: "optimising a global microchip supply chain",
-    description:
-      "formulated a mixed-integer optimization model for a global microchip producer to minimize warehouse and transportation costs across 1,000 orders.",
-    link: "/reports/supply-chain.pdf",
-    img: "/tsp.gif",
-  },
-  {
-    category: "machine learning",
-    title: "swipe for travel planning",
-    description:
-      "a fun side project with a friend - a travel planning app where you swipe through activities tinder-style to build a trip. i worked on data scraping, activity recommendations, and ranking. shipped to 100 real users.",
-    link: "https://github.com/hoang-phan98/tripswipe",
-    img: "/tripswipe.png",
-  },
-  {
-    category: "machine learning",
-    title: "predicting fetal health from heartbeat signals",
-    description:
-      "built a multi-class classifier on cardiotocogram (CTG) data - fetal heart rate and uterine contraction signals - to classify fetal health states and support early clinical intervention.",
-    link: "/reports/fetal-health.pdf",
-    img: "/ctg.jpg",
-  },
-  {
-    category: "machine learning",
-    title: "targeting the right buyers for automotive market entry",
-    description:
-      "predicted customer segments (A/B/C/D) for 2,627 new-market prospects using imputation techniques to handle missing data, enabling targeted sales outreach.",
-    link: "/reports/customer-segmentation.pdf",
-    img: "/kmeans.gif",
   },
 ];
 
@@ -204,12 +148,12 @@ export default function Home() {
         {/* projects */}
         <section className="mb-12">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-700 mb-6">projects</h2>
-          {["computer vision", "nlp & llms", "optimisation", "machine learning"].map((cat) => (
+          {projectCategories.map((cat) => (
             <div key={cat} className="mb-8">
               <p className="text-sm font-medium text-zinc-600 mb-4">{cat}</p>
               <div className="space-y-6">
                 {projects.filter((p) => p.category === cat).map((p) => (
-                  <div key={p.title} className="flex gap-5">
+                  <Link key={p.slug} href={`/projects/${p.slug}`} className="group flex gap-5">
                     {p.img && (
                       <div className="shrink-0 w-36 h-24 overflow-hidden rounded bg-zinc-100">
                         <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
@@ -217,15 +161,11 @@ export default function Home() {
                     )}
                     <div>
                       <div className="mb-1">
-                        {p.link ? (
-                          <a href={p.link} target="_blank" rel="noopener noreferrer" className="font-medium text-sm underline underline-offset-2 hover:text-zinc-500 transition-colors">{p.title}</a>
-                        ) : (
-                          <span className="font-medium text-sm">{p.title}</span>
-                        )}
+                        <span className="font-medium text-sm underline underline-offset-2 group-hover:text-zinc-500 transition-colors">{p.title}</span>
                       </div>
                       <p className="text-sm text-zinc-600 leading-relaxed">{p.description}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
